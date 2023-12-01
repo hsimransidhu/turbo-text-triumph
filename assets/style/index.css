@@ -19,7 +19,7 @@ body {
     background-color: #282c34;  
     color: #fff;
     margin: 0;
-    background-image: url("./bag.avif");
+    background-image: url("../img/bag.avif");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -39,7 +39,7 @@ body {
 h1 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #b19cd9;  
+    color: #b39ae2;  
 }
 
 button {
