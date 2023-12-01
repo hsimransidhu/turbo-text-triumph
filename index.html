@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style/index.css">
+    <title>Turbo Text Triumph</title>
+    <script type="module" src="./assets/script/index.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+</head>
+<body id="part">
+    <div id="game-container">
+        <h1>Turbo Text Triumph</h1>
+        <p id="word-display"></p>
+        <input type="text" id="word-input" autocomplete="off" autofocus>
+        <p id="timer">Time: <span id="time">99</span> seconds</p>
+        <p id="score">Hits: <span id="hits">0</span></p>
+        <div style="display: flex;flex-direction: row;gap: 20px;justify-content: center">
+        <button id="start-btn">Start Game</button>
+        <button id="end-btn" style="display: none;">End Game</button>
+        </div>
+    </div>
+    <div id="score-container">
+        <h1 >Game Over</h1>
+        <h2 id="dis">Game Over</h2>
+        <span id="info"> </span>
+        <p id="timer">Time Taken: <span id="scoreTime">99</span> seconds</p>
+        <p id="timer">Hits: <span id="scoreHits">0</span> Targets</p>
+        <button id="restart-btn2">Restart Game</button>
+    </div>
+</body>
+</html>
