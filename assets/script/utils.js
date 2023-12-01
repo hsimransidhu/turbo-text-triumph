@@ -1,8 +1,15 @@
 // Add event listener
+ // utils.js
 function onEvent(event, selector, callback) {
-    return selector.addEventListener(event, callback);
+  if (selector) {
+      selector.addEventListener(event, callback);
+      return selector;
+  } else {
+      console.error('not an error,just a warning ');
+      return null;
   }
-  
+}
+
   // Get HTML element by id
   function getElement(selector, parent = document) {
     return parent.getElementById(selector);

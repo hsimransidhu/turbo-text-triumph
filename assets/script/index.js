@@ -43,6 +43,9 @@ const restartBtn = getElement('restart-btn');
 const scoreContainer = getElement('score-container');
 const gameContainer = getElement('game-container');
 const res = getElement('dis');
+const correctSound = document.getElementById('correctSound');
+const winSound = document.getElementById('winSound');
+
 
 const audio = new Audio('./assets/audio/bg.mp3');
 
@@ -84,6 +87,15 @@ function stopAudio() {
     audio.currentTime = 0;
 }
 
+function playCorrectSound() {
+    correctSound.currentTime = 0;
+    correctSound.play();
+}
+
+function playwinSound() {
+    winSound.currentTime = 3;
+    winSound.play();
+}
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -108,6 +120,7 @@ function restartGame() {
 
 function showWord(word) {
     wordDisplay.textContent = word;
+    playCorrectSound();
 }
 
 function matchWords() {
@@ -135,7 +148,8 @@ function countdown() {
 
 function endGame() {
     isPlaying = false;
-    if (score > 10) confetti();
+    if (score > 10) confetti() , playwinSound();
+  
     startBtn.innerHTML = 'Start Game';
     endBtn.style.display = 'none';
     gameContainer.style.display = 'none';
@@ -148,10 +162,13 @@ function endGame() {
         let comment = '';
         if (score >= 30) {
             comment = "Dynamic Typing Keep it Up!..";
+            playwinSound();
         } else if (score >= 20) {
             comment = "You have good typing speed...";
+            playwinSound();
         } else if (score >= 15) {
             comment = "Great, You are Doing Awesome...";
+            playwinSound();
         } else if (score >= 10) {
             comment = "Nice One...";
         } else if (score >= 5) {

@@ -3,7 +3,7 @@
 @import url(' https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap');
 
 * {
-    margin: 0; 
+    margin: 0;
     padding: 0;
     outline: 0;
     border-style: none;
@@ -14,9 +14,9 @@
 }
 
 body {
-    font-family: "Nunito Sans" , "Open sans" , 'Arial', sans-serif;
+    font-family: "Nunito Sans", "Open sans", 'Arial', sans-serif;
     text-align: center;
-    background-color: #282c34;  
+    background-color: #282c34;
     color: #fff;
     margin: 0;
     background-image: url("../img/bag.avif");
@@ -26,37 +26,56 @@ body {
     font-weight: 500;
 }
 
-#game-container, #score-container {
+#game-container,
+#score-container {
     max-width: 600px;
     margin: 50px auto;
-    background-color: #5d4e77;  
+    background-color: #5d4e77;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    opacity: 0.9;  
+    opacity: 0.9;
 }
 
 h1 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #b39ae2;  
+    color: #b39ae2;
 }
 
 button {
     padding: 15px 20px;
     margin-top: 30px;
-    background-color: #6a0572;  
+    background-color: #6a0572;
     color: #fff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-size: 18px;
-    transition: background-color 0.3s ease, transform 0.2s ease;  
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #b06ab3;  
-    transform: scale(1.05);  
+    background-color: #b06ab3;
+    transform: scale(1.05);
+}
+
+button:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #2a1f8d, #f5a9ff, #1613a8, #c45959);
+
+}
+
+button:focus {
+    outline: none;
+}
+
+button {
+    background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
 }
 
 input {
@@ -65,16 +84,16 @@ input {
     margin-top: 20px;
     width: 80%;
     box-sizing: border-box;
-    border: 2px solid #6a0572;  
+    border: 2px solid #6a0572;
     border-radius: 8px;
-    color: #5d4e77;  
+    color: #5d4e77;
 }
 
 #word-display {
     font-size: 28px;
     margin-top: 40px;
     font-weight: 600;
-    color: #ff57a1;  
+    color: #ff57a1;
 }
 
 #timer,
@@ -82,7 +101,7 @@ input {
     font-size: 24px;
     margin-top: 20px;
     font-weight: 600;
-    color: #ffd700;  
+    color: #ffd700;
 }
 
 #time,
@@ -98,4 +117,8 @@ input {
 
 #score-container {
     display: none;
+}
+
+h2 {
+    font-size: 24px;
 }
