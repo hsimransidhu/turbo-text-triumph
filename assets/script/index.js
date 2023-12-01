@@ -1,8 +1,33 @@
 'use strict';
 
+class Score {
+    #date;
+    #hits;
+    #percentage;
+
+    constructor(date, hits, percentage) {
+        this.#date = date;
+        this.#hits = hits;
+        this.#percentage = percentage;
+    }
+
+    get date() {
+        return this.#date;
+    }
+
+    get hits() {
+        return this.#hits;
+    }
+
+    get percentage() {
+        return this.#percentage;
+    }
+}
+
 import { onEvent, getElement } from './utils.js';
 import confetti from 'https://cdn.skypack.dev/canvas-confetti';
-const words =  [
+
+const words = [
     'dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building',
     'population', 'weather', 'bottle', 'history', 'dream', 'character', 'money',
     'absolute', 'discipline', 'machine', 'accurate', 'connection', 'rainbow',
@@ -21,7 +46,7 @@ const words =  [
     'download', 'blue', 'actor', 'desk', 'watch', 'giraffe', 'brazil', 'mask',
     'audio', 'school', 'detective', 'hero', 'progress', 'winter', 'passion',
     'rebel', 'amber', 'jacket', 'article', 'paradox', 'social', 'resort', 'escape'
-   ];
+];
 let shuffledWords;
 let wordIndex;
 let score = 0;
@@ -46,7 +71,6 @@ const res = getElement('dis');
 const correctSound = document.getElementById('correctSound');
 const winSound = document.getElementById('winSound');
 
-
 const audio = new Audio('./assets/audio/bg.mp3');
 
 onEvent('click', startBtn, init);
@@ -59,10 +83,10 @@ function init() {
         isPlaying = true;
         score = 0;
         time = 99;
-        wordInput.value="";
+        wordInput.value = "";
         startBtn.innerHTML = 'Restart Game';
         endBtn.style.display = 'block';
-    gameContainer.style.display = "block";
+        gameContainer.style.display = "block";
         scoreContainer.style.display = 'none';
         shuffledWords = shuffleArray(words);
         startGame();
@@ -93,9 +117,10 @@ function playCorrectSound() {
 }
 
 function playwinSound() {
-    winSound.currentTime = 3;
+    winSound.currentTime = 4;
     winSound.play();
 }
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -148,8 +173,8 @@ function countdown() {
 
 function endGame() {
     isPlaying = false;
-    if (score > 10) confetti() , playwinSound();
-  
+    if (score > 10) confetti(), playwinSound();
+
     startBtn.innerHTML = 'Start Game';
     endBtn.style.display = 'none';
     gameContainer.style.display = 'none';
@@ -179,6 +204,13 @@ function endGame() {
         res.innerHTML = comment;
         speak(comment);
         speechPlayed = true;
+
+        const currentDate = new Date();
+        const scoreObject = new Score(currentDate, score, (score / words.length) * 100);
+
+        // Displaying the Score object properties in HTML
+        document.getElementById('Date').textContent = scoreObject.date.toLocaleDateString();
+        document.getElementById('percentage').textContent = `${scoreObject.percentage}%`;
     }
 }
 
@@ -187,3 +219,5 @@ function speak(text) {
     const utterance = new SpeechSynthesisUtterance(text);
     synth.speak(utterance);
 }
+
+ 
