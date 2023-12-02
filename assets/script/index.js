@@ -78,6 +78,8 @@ onEvent('click', restartBtn2, init);
 onEvent('click', endBtn, endGame);
 onEvent('click', restartBtn, restartGame);
 
+let intervalId;  // Variable to store the interval ID
+
 function init() {
     if (!isPlaying) {
         isPlaying = true;
@@ -90,7 +92,8 @@ function init() {
         scoreContainer.style.display = 'none';
         shuffledWords = shuffleArray(words);
         startGame();
-        setInterval(countdown, 1000);
+        clearInterval(intervalId);
+        intervalId = setInterval(countdown, 1000);
         playAudio();
     }
     if (startBtn.innerHTML == 'Restart Game') {
@@ -98,6 +101,8 @@ function init() {
         time = 99;
         isPlaying = true;
         restartGame();
+        clearInterval(intervalId);
+        intervalId = setInterval(countdown, 1000);
         playAudio();
     }
 }
@@ -210,7 +215,7 @@ function endGame() {
 
         // Displaying the Score object properties in HTML
         document.getElementById('Date').textContent = scoreObject.date.toLocaleDateString();
-        document.getElementById('percentage').textContent = `${scoreObject.percentage}%`;
+        document.getElementById('percentage').textContent = `${scoreObject.percentage.toFixed(2)}%`;
     }
 }
 

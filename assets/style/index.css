@@ -122,3 +122,14 @@ input {
 h2 {
     font-size: 24px;
 }
+
+.start-end {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center
+}
+
+#end-btn {
+    display: none;
+}
