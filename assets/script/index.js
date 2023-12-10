@@ -1,5 +1,5 @@
  'use strict';
-import { onEvent, getElement } from './utils.js';
+import { onEvent, getElement, create } from './utils.js';
 import Score from './class.js';
 import confetti from 'https://cdn.skypack.dev/canvas-confetti';
 
