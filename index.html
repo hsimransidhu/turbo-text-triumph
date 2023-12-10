@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
         <h1>Turbo Text Triumph</h1>
         <p id="word-display"></p>
         <input type="text" id="word-input" autocomplete="off" autofocus>
-        <p id="timer">Time: <span id="time">99</span> seconds</p>
+        <p id="timer">Time: <span id="time">20 </span> seconds</p>
         <p id="score">Hits: <span id="hits">0</span></p>
         <div class="start-end">
         <button id="start-btn">Start Game</button>
@@ -22,14 +22,24 @@
         </div>
     </div>
     <div id="score-container">
-        <h1 >Game Over</h1>
-        <h2 id="dis">Game Over</h2>
+        <h1 >Score Board</h1>
+        <h2 id="dis">Score Board</h2>
         <span id="info"> </span>
         <p id="timer">Date: <span id="Date"></span> </p>
         <p id="timer">Percentage <span id="percentage"></span></p>
-        <p id="timer">Time Taken: <span id="scoreTime">99</span> seconds</p>
-        <p id="timer">Hits: <span id="scoreHits">0</span> Hits</p>
+        <!-- <p id="timer">Time Taken: <span id="scoreTime">99</span> seconds</p> -->
+        <p id="timer">Points: <span id="scoreHits">0</span></p>
         <button id="restart-btn2">Restart Game</button>
+        <button id="showScoresBtn">Score Board</button>
+    </div> 
+    <div id="scoreboard-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <h2>Top Scores</h2>
+            <table id="scoreList"></table>
+            <div class="modal-body" id="scoreBoardResult"></div>
+            <div class="modal-footer"><button id="clearScores">Clear All Records</button></div>
+        </div>
     </div>
     <audio id="correctSound" src="./assets/audio/mixkit-interface-option-select-2573.wav" preload="auto"></audio>
     <audio id="winSound" src="./assets/audio/mixkit-girls-audience-applause-510.wav" preload="auto"></audio>
