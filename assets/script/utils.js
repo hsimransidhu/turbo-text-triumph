@@ -52,4 +52,4 @@ function onEvent(event, selector, callback) {
     return parent.createElement(element);
   }
 
-  export { onEvent, select, selectAll , getElement };
+  export { onEvent, select, selectAll , getElement , create };
